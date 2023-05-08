@@ -21,7 +21,7 @@ public enum Perfil {
 	}
 
 	@SuppressWarnings("unused")
-	private static Perfil toEnum(Integer cod) {
+	public static Perfil toEnum(Integer cod) {
 		if (cod == null) {
 			return null;
 		}
