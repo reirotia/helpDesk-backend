@@ -13,7 +13,7 @@ public class Cliente extends Pessoa  {
 
 	private static final long serialVersionUID = 1L;
 	
-	@OneToMany(mappedBy = "tecnico")
+	@OneToMany(mappedBy = "cliente")
 	private List<Chamado> chamados = new ArrayList<>();
 
 	public Cliente() {

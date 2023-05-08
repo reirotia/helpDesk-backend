@@ -3,6 +3,7 @@ package com.reinaldo.helpDesk.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.reinaldo.helpDesk.domain.enums.Perfil;
 
 import jakarta.persistence.Entity;
@@ -16,7 +17,8 @@ public class Tecnico extends Pessoa {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@OneToMany(mappedBy = "cliente")
+	@JsonIgnore
+	@OneToMany(mappedBy = "tecnico")
 	private List<Chamado> chamados = new ArrayList<>();
 
 	public Tecnico() {
