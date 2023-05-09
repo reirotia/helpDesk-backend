@@ -1,5 +1,7 @@
 package com.reinaldo.helpDesk.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,9 @@ public class TecnicoService {
 
 	public Tecnico buscarPorId(Integer id) {
 		return  this.tecnicoRepo.findById(id).orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado " + id));
+	}
+	
+	public List<Tecnico> listarTodos() {
+		return tecnicoRepo.findAll();
 	}
 }

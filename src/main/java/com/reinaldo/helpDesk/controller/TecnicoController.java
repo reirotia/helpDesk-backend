@@ -1,5 +1,8 @@
 package com.reinaldo.helpDesk.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,5 +25,12 @@ public class TecnicoController {
 	public ResponseEntity<TecnicoDTO> buscarPorId(@PathVariable Integer id) {
 		Tecnico obj = this.tecnicoService.buscarPorId(id);
 		return ResponseEntity.ok().body(new TecnicoDTO(obj));
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<TecnicoDTO>> listaTodos() {
+		 List<Tecnico> lista = this.tecnicoService.listarTodos();
+		 List<TecnicoDTO> listaDTO = lista.stream().map(x -> new TecnicoDTO(x)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listaDTO);
 	}
 }
